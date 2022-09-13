@@ -27,6 +27,7 @@ class Autor(models.Model):
         verbose_name_plural = "Autores"
 
 class Livro(models.Model):
+    autores = models.ManyToManyField(Autor, related_name="livros")
     titulo = models.CharField(max_length=255)
     ISBN = models.CharField(max_length=32)
     quantidade = models.IntegerField()
